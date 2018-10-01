@@ -9,8 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "npx tsc -p tsconfig.json && npx rollup --config && tail -n +42 node_modules/plottable/plottable.css > dist/charts.css && cat charts.css >> dist/charts.css",
-    "build-webpack": "npx webpack"
+    "build": "npx tsc -p tsconfig.json && npx rollup --config && tail -n +42 node_modules/plottable/plottable.css > dist/charts.css && cat charts.css >> dist/charts.css"
   },
   "repository": {
     "type": "git",
