@@ -80,10 +80,10 @@ export class BaseChart {
 
   toScaleType(value: any, scale: any) {
     if (scale instanceof Plottable.Scales.Linear) {
-      return (typeof value === 'number') ? value :
-        parseFloat(value.toString()
-          .replace(this.options.numberFilterRegex, '')) ||
-        undefined;
+      if (typeof value === 'number') return value;
+      let num = parseFloat(value.toString()
+        .replace(this.options.numberFilterRegex, ''));
+      return (isNaN(num)) ? undefined : num;
     }
 
     if (scale instanceof Plottable.Scales.Time) {
