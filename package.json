@@ -28,8 +28,7 @@
   },
   "homepage": "https://github.com/champaigncountyrpc/ccrpc-charts#readme",
   "dependencies": {
-    "plottable": "^3.8.3",
-    "webpack": "^4.18.1"
+    "plottable": "^3.8.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.1",
