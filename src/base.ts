@@ -31,7 +31,8 @@ export class BaseChart {
       legend: true,
       legendAlignment: 'right',
       legendRowWidth: 1,
-      numberRegex: /^[\s$]*([\d.]+)[\s%]*$/,
+      numberRegex: /^[\s$]*[\-\d.,]+[\s%]*$/,
+      numberFilterRegex: /[^\-\d.]/g,
       redrawRate: 15,
       title: null
     };
@@ -79,10 +80,10 @@ export class BaseChart {
 
   toScaleType(value: any, scale: any) {
     if (scale instanceof Plottable.Scales.Linear) {
-      if (typeof value === 'number') return value;
-      let matches = value.toString().match(this.options.numberRegex);
-      return (matches && matches.length > 1) ?
-        parseFloat(matches[1]) : undefined;
+      return (typeof value === 'number') ? value :
+        parseFloat(value.toString()
+          .replace(this.options.numberFilterRegex, '')) ||
+        undefined;
     }
 
     if (scale instanceof Plottable.Scales.Time) {

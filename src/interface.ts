@@ -25,6 +25,7 @@ export interface BaseChartOptions {
   legendAlignment?: Alignment;
   legendRowWidth?: number;
   numberRegex?: RegExp;
+  numberFilterRegex?: RegExp;
   redrawRate?: number;
   title?: string;
 }
